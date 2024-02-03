@@ -1,0 +1,28 @@
+{
+  "name": "atomic",
+  "version": "1.0.0",
+  "description": "Javascript based P2P Chat server+client",
+  "main": "./neutron/index.js",
+  "scripts": {
+    "test": "npx serve ./neutron/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arlojay-studios/Atomic.git"
+  },
+  "keywords": [
+    "P2P",
+    "Javascipt",
+    "Typescript",
+    "Chatserver",
+    "Chatroom",
+    "Social",
+    "Chat"
+  ],
+  "author": "Arlojay Studios",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/arlojay-studios/Atomic/issues"
+  },
+  "homepage": "https://github.com/arlojay-studios/Atomic"
+}
