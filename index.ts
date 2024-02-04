@@ -2,11 +2,14 @@
 
 /**
  * Init
- * @param {Number} port: Which port the server will run on.
+ * @param {Number} port
+ *  Which port the server will run on.
  * Usage: --port [port]
- * @param {Boolean} parity: Whether or not the server will be used as a backup. Data retention is 7 days.
+ * @param {Boolean} parity
+ *  Whether or not the server will be used as a backup. Data retention is 7 days.
  * Usage: --parity [true|false]
- * @param {String} dbPath: Where the DB resides on the file system
+ * @param {String} dbPath
+ *  Where the DB resides on the file system
  * Usage: --db ['/path/to/db']
  * @private
  */
@@ -19,7 +22,13 @@ const argv = require('minimist')(process.argv.slice(1), {
     }
 });
 
-const neutron = require('@arlojay-studios/neutron-atomic');
+/**
+ * CommonJS Imports
+ * @public
+ */
+
+import * as neutron from "@arlojay-studios/neutron-atomic"
+import * as proton from "@arlojay-studios/proton-atomic"
 
 /**
  * Server startup and DB linking
@@ -28,4 +37,10 @@ const neutron = require('@arlojay-studios/neutron-atomic');
  * @public
  */
 
-const db = neutron.init(argv.port, argv.db);
+async function main(): Promise<protonDB> {
+    
+    const server = new neutron.protonServer(argv.db)
+    return await server.init(argv.port);
+}
+
+main();

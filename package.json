@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Javascript based P2P Chat Wrapper",
   "main": "./index.ts",
+  "type": "module",
   "scripts": {
     "test": "node index.ts"
   },
@@ -26,8 +27,13 @@
   },
   "homepage": "https://github.com/arlojay-studios/Atomic#readme",
   "dependencies": {
-    "@arlojay-studios/electron-atomic": "^0.0.5",
-    "@arlojay-studios/neutron-atomic": "^0.0.6",
-    "@arlojay-studios/proton-atomic": "^0.0.5"
+    "@arlojay-studios/electron-atomic": "^0.0.7",
+    "@arlojay-studios/neutron-atomic": "^0.0.8",
+    "@arlojay-studios/proton-atomic": "^0.0.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.16",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }
