@@ -4,7 +4,7 @@
   "description": "Javascript based P2P Chat server+client",
   "main": "./neutron/index.js",
   "scripts": {
-    "test": "npx serve ./neutron/index.js"
+    "test": "npx serve ./index.ts"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "minimist": "^1.2.8",
+    "path": "^0.12.7",
     "sqlite3": "^5.1.7",
     "uuid": "^9.0.1"
   }

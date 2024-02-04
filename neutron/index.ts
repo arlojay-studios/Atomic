@@ -12,7 +12,7 @@
  */
 
 import {Database, uuidChecker} from '../proton/core';
-import {Request, Response} from 'express';
+import {Request, Response, Next} from 'express';
 import * as fs from 'fs';
 const argv = require('minimist')(process.argv.slice(1), {
     'default': {
@@ -48,7 +48,7 @@ try {
  * @public
  */
 
-server.use(async (req: Request, res: Response, next) => {
+ server.use(async (req: Request, res: Response, next: Next) => {
     const clientUUID = req.get('client-uuid');
     try {
     await db.open();
@@ -81,7 +81,11 @@ server.use(async (req: Request, res: Response, next) => {
 
 server.get('/', (req: Request, res: Response) => {
     const clientUUID = req.get('client-uuid')
-    res.send(/* electron data */ )
+    res.sendFile( '../electron/bootstrap.html')
+})
+
+server.get('/web.ts', (req: Request, res: Response) => {
+    res.sendFile('../electron/web.ts')
 })
 
 server.listen(argv.port, () => {
