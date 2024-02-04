@@ -1,11 +1,8 @@
 {
   "name": "atomic",
   "version": "1.0.0",
-  "description": "Javascript based P2P Chat server+client",
-  "main": "./neutron/index.js",
-  "scripts": {
-    "test": "npx serve ./index.ts"
-  },
+  "description": "Javascript based P2P Chat Wrapper",
+  "main": "./index.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arlojay-studios/Atomic.git"
@@ -26,11 +23,6 @@
   },
   "homepage": "https://github.com/arlojay-studios/Atomic#readme",
   "dependencies": {
-    "express": "^4.18.2",
-    "fs": "^0.0.1-security",
-    "minimist": "^1.2.8",
-    "path": "^0.12.7",
-    "sqlite3": "^5.1.7",
-    "uuid": "^9.0.1"
+    /* will have arlojay-studios imports here, for now it's broken.*/
   }
 }
