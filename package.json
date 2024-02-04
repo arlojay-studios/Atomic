@@ -24,5 +24,12 @@
   "bugs": {
     "url": "https://github.com/arlojay-studios/Atomic/issues"
   },
-  "homepage": "https://github.com/arlojay-studios/Atomic"
+  "homepage": "https://github.com/arlojay-studios/Atomic#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "minimist": "^1.2.8",
+    "sqlite3": "^5.1.7",
+    "uuid": "^9.0.1"
+  }
 }
