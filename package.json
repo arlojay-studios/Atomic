@@ -26,8 +26,11 @@
   },
   "homepage": "https://github.com/arlojay-studios/Atomic#readme",
   "dependencies": {
-    "@arlojay-studios/electron-atomic": "^0.0.2",
-    "@arlojay-studios/neutron-atomic": "^0.0.2",
-    "@arlojay-studios/proton-atomic": "^0.0.2"
+    "@arlojay-studios/electron-atomic": "^0.0.4",
+    "@arlojay-studios/neutron-atomic": "^0.0.5",
+    "@arlojay-studios/proton-atomic": "^0.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.16"
   }
 }
