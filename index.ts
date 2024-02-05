@@ -1,5 +1,7 @@
 'use strict';
 
+import { protonServer } from '@arlojay-studios/neutron-atomic'
+
 /**
  * Init
  * @param {Number} port
@@ -18,29 +20,34 @@ const argv = require('minimist')(process.argv.slice(1), {
     'default': {
         'port': 3000,
         'parity': false,
-        'db': '../db/users.db'
+        'db': './db/users.db'
     }
 });
 
 /**
- * CommonJS Imports
- * @public
- */
-
-import * as neutron from "@arlojay-studios/neutron-atomic"
-import * as proton from "@arlojay-studios/proton-atomic"
-
-/**
- * Server startup and DB linking
- * @param {number} port
+ * Server / DB Init
+ * @param {String} dbPath
+ * @param {String} port
  * @returns {protonDB}
- * @public
  */
 
-async function main(): Promise<protonDB> {
-    
-    const server = new neutron.protonServer(argv.db)
-    return await server.init(argv.port);
+export class Wrapper {
+    private server: protonServer;
+
+    constructor(dbPath: string) {
+        this.server = new protonServer(dbPath);
+    }
+
+    public main(port: number): Promise<[Express.Application, any] | string> {
+        return new Promise(async (resolve, reject) => {
+            try {
+                resolve(await this.server.init(port));
+            } catch (err) {
+                reject(err);
+            }
+        }) 
+    }
 }
 
-main();
+const atomic = new Wrapper(argv.db);
+console.log(atomic.main(argv.port));
