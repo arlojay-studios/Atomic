@@ -1,6 +1,7 @@
 'use strict';
 
-import { protonServer } from '@arlojay-studios/neutron-atomic'
+import { neutron } from '@arlojay-studios/neutron-atomic'
+import { protonDB } from '@arlojay-studios/proton-atomic';
 
 /**
  * Init
@@ -32,13 +33,13 @@ const argv = require('minimist')(process.argv.slice(1), {
  */
 
 export class Wrapper {
-    private server: protonServer;
+    private server: neutron;
 
     constructor(dbPath: string) {
-        this.server = new protonServer(dbPath);
+        this.server = new neutron(dbPath);
     }
 
-    public main(port: number): Promise<[Express.Application, any] | string> {
+    public main(port: number): Promise<[Express.Application, protonDB] | string> {
         return new Promise(async (resolve, reject) => {
             try {
                 resolve(await this.server.init(port));
@@ -50,4 +51,4 @@ export class Wrapper {
 }
 
 const atomic = new Wrapper(argv.db);
-console.log(atomic.main(argv.port));
+atomic.main(argv.port)
